@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+from dataclasses import dataclass
+
 
 def update_quality(items):
     for item in items:
@@ -31,11 +32,12 @@ def update_quality(items):
                     item.quality = item.quality + 1
     return items
 
+
+@dataclass
 class Item:
-    def __init__(self, name, sell_in, quality):
-        self.name = name
-        self.sell_in = sell_in
-        self.quality = quality
+    name: str
+    sell_in: int
+    quality: int
 
     def __repr__(self):
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
